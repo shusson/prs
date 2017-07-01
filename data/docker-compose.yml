@@ -1,0 +1,7 @@
+version: '2'
+services:
+  load:
+    image: ${MAPD_IMAGE}
+    entrypoint: ["/bin/bash", "/data/load.sh"]
+    volumes:
+      - ../data:/data

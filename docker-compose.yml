@@ -1,0 +1,35 @@
+version: '2'
+services:
+  mapd-00:
+    image: ${MAPD_IMAGE}
+    restart: always
+    entrypoint: ["mapd_server", "--http-port", "9090", "-p", "9091", "--data", "/data/mapd-data-00", "--read-only", "--db-query-list", "/data/warm-up.sql"]
+    volumes:
+      - ./data:/data
+  mapd-api:
+    image: shusson/mapd-api:1.1
+    restart: always
+    entrypoint: ["/go/bin/app"]
+    command: ["-url", "http://mapd-00:9090"]
+    ports:
+      - 4000:4000
+    depends_on:
+      - mapd-00
+  # healthcheck:
+  #   image: shusson/mapd-healthcheck:1.0
+  #   restart: always
+  #   entrypoint: ["/go/bin/app"]
+  #   command: ["-u", "http://mapd-00:9090"]
+  #   ports:
+  #     - 8000:8000
+  #   depends_on:
+  #     - mapd-00
+  immerse:
+    image: ${MAPD_IMAGE}
+    restart: always
+    entrypoint: ["mapd_web_server", "--port", "8080", "--backend-url", "http://mapd-api:4000"]
+    working_dir: /build/mapd-core/build
+    depends_on:
+      - mapd-api
+    ports:
+      - 8080:8080

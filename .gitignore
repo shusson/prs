@@ -1,0 +1,3 @@
+data/mapd-data*
+data/*.csv*
+.env
