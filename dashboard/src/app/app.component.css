@@ -29,3 +29,31 @@
     display: flex;
     justify-content: space-between;
 }
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: x-large;
+    margin: 1rem;
+}
+
+.subtitle {
+    font-size: small;
+    margin: 5px;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+}
+
+.github-link img {
+    height: 20px;
+    width: auto;
+    margin: 5px;
+}
