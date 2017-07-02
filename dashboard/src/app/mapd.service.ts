@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-
-const protocol = 'http';
-const host = 'localhost';
-const port = '4000';
-const dbName = 'mapd';
-const user = 'mapd';
-const pwd = 'HyperInteractive';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class MapdService {
@@ -17,12 +11,12 @@ export class MapdService {
     connect(): Promise<any> {
         return new Promise((resolve, reject) => {
             new MapdCon()
-                .protocol([protocol])
-                .host([host])
-                .port([port])
-                .dbName([dbName])
-                .user([user])
-                .password([pwd])
+                .protocol([environment.protocol])
+                .host([environment.host])
+                .port([environment.port])
+                .dbName([environment.dbName])
+                .user([environment.user])
+                .password([environment.pwd])
                 .connect((error, session) => {
                     if (error) {
                         reject(error);

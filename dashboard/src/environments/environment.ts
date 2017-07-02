@@ -4,5 +4,11 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    protocol: 'http',
+    host: 'localhost',
+    port: '4000',
+    dbName: 'mapd',
+    user: 'mapd',
+    pwd: 'HyperInteractive'
 };
