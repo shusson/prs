@@ -3,7 +3,7 @@ services:
   mapd-00:
     image: ${MAPD_IMAGE}
     restart: always
-    entrypoint: ["mapd_server", "--http-port", "9090", "-p", "9091", "--data", "/data/mapd-data-00", "--read-only", "--db-query-list", "/data/warm-up.sql"]
+    entrypoint: ["mapd_server", "--http-port", "9090", "-p", "9091", "--data", "/data/mapd-data-00", "--db-query-list", "/data/warm-up.sql"]
     volumes:
       - ./data:/data
   mapd-api:
