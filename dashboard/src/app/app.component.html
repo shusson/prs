@@ -1,0 +1,60 @@
+<div class="title">
+    Explore every PR between 2012 and 2017
+</div>
+<div class="subtitle">
+    Powered by <a target="_blank" href="https://github.com/mapd/mapd-core">Mapd</a>, <a target="_blank" href="https://github.com/mapd/mapd-charting">cross dimensional charts</a> and the <a target="_blank" href="https://github.com/igrigorik/githubarchive.org">github archive</a>.
+</div>
+<div class="contact">
+    See this repo for details on how this
+    dashboard was created.
+
+</div>
+<div class="charts">
+    <div class="main">
+        <div class="toolbar" [ngStyle]="toolBarStyle">
+            <button md-raised-button (click)="clearFilters()">Clear All Filters</button>
+            <div class="count"></div>
+        </div>
+        <div class="chart main-chart">
+            <div class="label" mdTooltip="Records by Date" mdTooltipPosition="above">
+                Pull Requests
+            </div>
+            <div id="records" [ngStyle]="largeChartStyle"></div>
+        </div>
+
+        <div class="chart large-chart">
+            <div class="label" mdTooltip="Avg additions, avg deletions by language" mdTooltipPosition="above">
+                Review metrics
+            </div>
+            <div id="lang-bubble" [ngStyle]="largeChartStyle"></div>
+        </div>
+
+        <div class="row">
+            <div class="chart small-chart">
+                <div class="label" mdTooltip="Records by user" mdTooltipPosition="above">
+                    Users
+                </div>
+                <div id="actors" [ngStyle]="smallChartStyle"></div>
+            </div>
+            <div class="chart small-chart">
+                <div class="label" mdTooltip="Records by language" mdTooltipPosition="above">
+                    Language
+                </div>
+                <div id="lang" [ngStyle]="smallChartStyle"></div>
+            </div>
+
+            <div class="chart small-chart">
+                <div class="label" mdTooltip="Records by merged" mdTooltipPosition="above">
+                    Merged
+                </div>
+                <div id="merged" [ngStyle]="smallChartStyle"></div>
+            </div>
+            <div class="chart small-chart">
+                <div class="label" mdTooltip="Records by organization" mdTooltipPosition="above">
+                    Organization
+                </div>
+                <div id="org" [ngStyle]="smallChartStyle"></div>
+            </div>
+        </div>
+    </div>
+</div>
