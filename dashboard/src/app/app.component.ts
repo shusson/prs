@@ -11,8 +11,10 @@ const timeBounds = [new Date('2012-01-01T00:00:00'), new Date('2018-01-01T00:00:
 const margins = {left: 60, right: 10, top: 10, bottom: 30 };
 const LARGE_WIDTH = window.innerWidth / 1.4;
 const LARGE_HEIGHT = 180;
-const SMALL_WIDTH = 220;
-const SMALL_HEIGHT = 200;
+const SMALL_WIDTH = 270;
+const SMALL_HEIGHT = 320;
+const PIE_WIDTH = 200;
+const PIE_HEIGHT = 200;
 const INNER_RADIUS = 30;
 
 @Component({
@@ -36,6 +38,7 @@ export class AppComponent implements OnInit {
     toolBarStyle = {'width': `${LARGE_WIDTH}px`};
     largeChartStyle = {'width': `${LARGE_WIDTH}px`, 'height': `${LARGE_HEIGHT}px`};
     smallChartStyle = {'width': `${SMALL_WIDTH}px`, 'height': `${SMALL_HEIGHT}px`};
+    pieChartStyle = {'width': `${PIE_WIDTH}px`, 'height': `${PIE_HEIGHT}px`};
 
     constructor(private cd: ChangeDetectorRef,
                 private mapd: MapdService,
@@ -76,36 +79,42 @@ export class AppComponent implements OnInit {
             .dimension(x)
             .group(countGroup);
 
-        this.lang = dc.pieChart('#lang')
+        this.lang = dc.rowChart('#lang')
             .width(SMALL_WIDTH)
             .height(SMALL_HEIGHT)
-            .innerRadius(INNER_RADIUS)
-            .slicesCap(20)
+            .cap(20)
+            .elasticX(true)
             .othersGrouper(false)
             .dimension(langDim)
+            .margins({left: 10, right: 10, top: 10, bottom: 30 })
             .group(langDim.group().reduceCount());
+        this.lang.xAxis().ticks(2);
 
-        this.org = dc.pieChart('#org')
+        this.org = dc.rowChart('#org')
             .width(SMALL_WIDTH)
             .height(SMALL_HEIGHT)
-            .innerRadius(INNER_RADIUS)
-            .slicesCap(20)
+            .cap(20)
+            .elasticX(true)
             .othersGrouper(false)
             .dimension(orgDim)
+            .margins({left: 10, right: 10, top: 10, bottom: 30 })
             .group(orgDim.group().reduceCount());
+        this.org.xAxis().ticks(2);
 
-        this.actors = dc.pieChart('#actors')
+        this.actors = dc.rowChart('#actors')
             .width(SMALL_WIDTH)
             .height(SMALL_HEIGHT)
-            .innerRadius(INNER_RADIUS)
-            .slicesCap(20)
+            .cap(20)
+            .elasticX(true)
             .othersGrouper(false)
             .dimension(actorsDim)
+            .margins({left: 10, right: 10, top: 10, bottom: 30 })
             .group(actorsDim.group().reduceCount());
+        this.actors.xAxis().ticks(2);
 
         this.merged = dc.pieChart('#merged')
-            .width(SMALL_WIDTH)
-            .height(SMALL_HEIGHT)
+            .width(PIE_WIDTH)
+            .height(PIE_HEIGHT)
             .innerRadius(INNER_RADIUS)
             .slicesCap(20)
             .othersGrouper(false)
