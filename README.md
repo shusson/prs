@@ -3,7 +3,7 @@
 This is a side project I did for fun over the weekend.
 
 Data is all PR events from 01/2012 to 06/2017. The data is extracted from
-the archive using BigQuery and [data/extract_prs.sql](data/extract_prs.sql).
+the github archive using BigQuery and [data/extract_prs.sql](data/extract_prs.sql).
 
 The data is stored on containerized [MapD](https://github.com/mapd/mapd-core) databases on AWS P2 instances.
 
@@ -14,7 +14,7 @@ The web app is built with angular and hosted on firebase. Visualizations are cre
 
 #### Database
 
-MapD can work with out without a GPU. I'm using docker to simplify the
+MapD can work with or without a GPU. I'm using docker to simplify the
 deployment process. There are two docker compose files, one for loading the data [data/docker-compose.yml](data/docker-compose.yml), and one for running the services [docker-compose.yml](docker-compose.yml). Both use a `.env` file to determine what MapD image to run. Currently I'm using my own personal images on docker hub, but you can build your own with https://github.com/shusson/docker-mapd or follow the official guide https://github.com/mapd/mapd-core/tree/master/docker.
 
 I haven't automated getting the data from the github archive. The manual process is as follows:
