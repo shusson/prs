@@ -2,12 +2,12 @@
 
 https://github-investigation.firebaseapp.com/
 
-This is a side project I did for fun over the weekend.
+This is a side project I did for fun over the weekend. I've been using Mapd at work for a [genomics project](https://sgc.garvan.org.au/explore) and wanted to apply what I've learned to some different data.
 
 The data is extracted from
 the github archive using BigQuery and [data/extract_prs.sql](data/extract_prs.sql).
 
-The backend is powered by containerized [MapD](https://github.com/mapd/mapd-core) databases on GCP n1-highcpu-8 instances. I'm using CPU only instances because the data size is relatively small and I'm on a budget :).
+The backend is powered by containerized [MapD](https://github.com/mapd/mapd-core) databases on GCP n1-highcpu-8 instances. I'm using CPU only instances because the data size is relatively small and I'm on a budget :) so performance wise this won't do MapD justice. If you're interested in the type of performance MapD is capable of, Mark Litwintschik [blog](http://tech.marksblogg.com/) is a great resource.
 
 The web app is built with angular and hosted on firebase. Visualizations are created using [mapd-charting](https://github.com/mapd/mapd-charting), [mapd-crossfilter](https://github.com/mapd/mapd-crossfilter) and
 [mapd-connector](https://github.com/mapd/mapd-connector).
