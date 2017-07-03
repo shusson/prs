@@ -5,9 +5,9 @@
 
 export const environment = {
     production: false,
-    protocol: 'http',
-    host: 'localhost',
-    port: '4000',
+    protocol: 'https',
+    host: 'beanlab.xyz',
+    port: '443',
     dbName: 'mapd',
     user: 'mapd',
     pwd: 'HyperInteractive'
