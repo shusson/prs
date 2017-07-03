@@ -1,11 +1,13 @@
 ## Explore every GitHub PR between 2012 and 2017
 
+https://github-investigation.firebaseapp.com/
+
 This is a side project I did for fun over the weekend.
 
-Data is all PR events from 01/2012 to 06/2017. The data is extracted from
+The data is extracted from
 the github archive using BigQuery and [data/extract_prs.sql](data/extract_prs.sql).
 
-The data is stored on containerized [MapD](https://github.com/mapd/mapd-core) databases on AWS P2 instances.
+The backend is powered by containerized [MapD](https://github.com/mapd/mapd-core) databases on GCP n1-highcpu-8 instances. I'm using CPU only instances because the data size is relatively small and I'm on a budget :).
 
 The web app is built with angular and hosted on firebase. Visualizations are created using [mapd-charting](https://github.com/mapd/mapd-charting), [mapd-crossfilter](https://github.com/mapd/mapd-crossfilter) and
 [mapd-connector](https://github.com/mapd/mapd-connector).

@@ -13,7 +13,7 @@ const LARGE_WIDTH = window.innerWidth / 1.4;
 const LARGE_HEIGHT = 180;
 const SMALL_WIDTH = 220;
 const SMALL_HEIGHT = 200;
-const INNER_RADIUS = 40;
+const INNER_RADIUS = 30;
 
 @Component({
     selector: 'app-root',
@@ -126,7 +126,7 @@ export class AppComponent implements OnInit {
             .renderLabel(false)
             .group(recordsDim.group().reduceCount())
             .binParams({
-                numBins: 200,
+                numBins: 300,
                 binBounds: timeBounds
             });
 
