@@ -7,7 +7,7 @@ import { CrossfilterService } from './cf.service';
 import '@mapd/mapdc/dist/mapdc.js';
 
 const table = 'prs';
-const timeBounds = [new Date('2012-01-01T00:00:00'), new Date('2017-06-01T00:00:00')];
+const timeBounds = [new Date('2012-01-01T00:00:00'), new Date('2018-01-01T00:00:00')];
 const margins = {left: 60, right: 10, top: 10, bottom: 30 };
 const LARGE_WIDTH = window.innerWidth / 1.4;
 const LARGE_HEIGHT = 180;
@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
             .width(SMALL_WIDTH)
             .height(SMALL_HEIGHT)
             .innerRadius(INNER_RADIUS)
-            .slicesCap(12)
+            .slicesCap(20)
             .othersGrouper(false)
             .dimension(actorsDim)
             .group(actorsDim.group().reduceCount());
