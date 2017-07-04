@@ -25,9 +25,17 @@
 
 
 .toolbar {
-    margin: 1rem;
+    margin: 1rem 0 1rem 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.toolbar button {
+    min-width: 100px;
+    margin-bottom: 5px;
 }
 
 .details {
