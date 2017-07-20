@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ChartsComponent
     ],
     imports: [
         BrowserModule,

@@ -12,53 +12,12 @@
         <a class="github-link" target="_blank" href="https://github.com/shusson/prs">View on GitHub <img
         src="assets/gh.png"></a>
     </div>
-</div>
 
-<div class="charts">
-    <div class="main">
-        <div class="toolbar" [ngStyle]="toolBarStyle">
-            <button md-raised-button (click)="clearFilters()">Clear All Filters</button>
-            <div class="count"></div>
-        </div>
-        <div class="chart main-chart">
-            <div class="label" mdTooltip="Records by Date" mdTooltipPosition="above">
-                Pull Requests
-            </div>
-            <div id="records" [ngStyle]="largeChartStyle"></div>
-        </div>
 
-        <div class="chart large-chart">
-            <div class="label" mdTooltip="Avg additions, avg deletions by language" mdTooltipPosition="above">
-                Top 20 Languages by review metrics
-            </div>
-            <div id="lang-bubble" [ngStyle]="largeChartStyle"></div>
-        </div>
-
-        <div class="row">
-            <div class="chart small-chart">
-                <div class="label" mdTooltip="Records by user" mdTooltipPosition="above">
-                    Top 20 Users
-                </div>
-                <div id="actors" [ngStyle]="smallChartStyle"></div>
-            </div>
-            <div class="chart small-chart">
-                <div class="label" mdTooltip="Records by language" mdTooltipPosition="above">
-                    Top 20 Languages
-                </div>
-                <div id="lang" [ngStyle]="smallChartStyle"></div>
-            </div>
-            <div class="chart small-chart">
-                <div class="label" mdTooltip="Records by organization" mdTooltipPosition="above">
-                    Top 20 Organizations
-                </div>
-                <div id="org" [ngStyle]="smallChartStyle"></div>
-            </div>
-            <div class="chart small-chart">
-                <div class="label" mdTooltip="Records by merged" mdTooltipPosition="above">
-                    Merged
-                </div>
-                <div id="merged" [ngStyle]="pieChartStyle"></div>
-            </div>
-        </div>
+    <app-charts *ngIf="show"></app-charts>
+    <div class="notification" *ngIf="!show">
+        Due to server costs this live demo is no longer available. Contact me if you want to see it or deploy it yourself using the <a target="_blank" href="https://github.com/shusson/prs">instructions on github</a>.
     </div>
 </div>
+
+
