@@ -41,6 +41,7 @@ Modify the environment file [dashboard/src/environments/environment.ts](dashboar
 
 ```bash
 cd dashboard
+npm install
 ng serve
 ```
 Browse to http://localhost:4200
